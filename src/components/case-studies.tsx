@@ -2,7 +2,7 @@ import { ArrowRightIcon } from "lucide-react";
 import SectionHeader from "./common/section-header";
 
 const Seperator = () => {
-  return <div className="w-[1px] h-full max-h-[186px] bg-white"></div>;
+  return <div className="w-1px h-full max-h-[186px] bg-white"></div>;
 };
 const CaseStudies = () => {
   return (
