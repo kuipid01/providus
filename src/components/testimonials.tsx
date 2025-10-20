@@ -12,16 +12,16 @@ const getTypeOfStar = (index: number) => {
 
 const Testimonials = () => {
   return (
-    <div className=" mt-[100px]">
+    <div className="mt-12 sm:mt-16 lg:mt-[100px]">
       <SectionHeader
         title="Testimonials"
         description="Hear from Our Satisfied Clients: Read Our Testimonials to Learn More about Our Digital Marketing Services"
       />
 
-      <div className=" mt-20  w-full  h-[625px]  rounded-[45px] bg-dark flex flex-col">
-        <div className="mt-[84px]" />
+      <div className="mt-12 sm:mt-16 lg:mt-20 w-full min-h-[400px] sm:min-h-[500px] lg:h-[625px] rounded-[45px] bg-dark flex flex-col">
+        <div className="mt-8 sm:mt-12 lg:mt-[84px]" />
 
-        <div className=" flex justify-center overflow-x-clip gap-[50px] w-full items-center">
+        <div className="flex flex-col lg:flex-row justify-center overflow-x-auto lg:overflow-x-clip gap-6 sm:gap-8 lg:gap-[50px] w-full items-center px-4 sm:px-6 lg:px-0">
           <MessageWrapper
             children={
               <p>
@@ -66,7 +66,7 @@ const Testimonials = () => {
           />
         </div>
 
-        <div className="w-[564px] mx-auto mt-[124px] flex justify-between  items-center   h-10">
+        <div className="w-full max-w-[564px] mx-auto mt-8 sm:mt-12 lg:mt-[124px] flex justify-between items-center h-10 px-4 sm:px-6 lg:px-0">
           <ArrowLeftIcon
             className="w-[20px] h-[20px]"
             onClick={() => {

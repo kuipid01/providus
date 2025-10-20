@@ -18,7 +18,7 @@ const ServiceCard = ({
   return (
     <div
       className={clsx(
-        " flex items-center border border-dark  drop-shadow-[0px_5px_0px_#191A23] text-black h-[310px] justify-between px-[57px] py-[50px]  rounded-[45px]",
+        "flex flex-col sm:flex-row items-center border border-dark drop-shadow-[0px_5px_0px_#191A23] text-black min-h-[250px] sm:h-[310px] justify-between px-4 sm:px-8 lg:px-[57px] py-6 sm:py-8 lg:py-[50px] rounded-[45px]",
         variant === "dark"
           ? "bg-dark"
           : variant === "gray"
@@ -26,7 +26,7 @@ const ServiceCard = ({
           : "bg-primary"
       )}
     >
-      <div className=" flex flex-col  gap-[93px]">
+      <div className="flex flex-col gap-6 sm:gap-12 lg:gap-[93px] w-full sm:w-auto">
         <div>
           <p
             className={clsx(
@@ -58,7 +58,7 @@ const ServiceCard = ({
           </p>
         </div>
 
-        <div className=" flex items-center gap-[15px]">
+        <div className="flex items-center gap-3 sm:gap-[15px]">
           <div
             className={clsx(
               " rounded-full  w-[41px] h-[41px] flex items-center justify-center ",
@@ -83,7 +83,7 @@ const ServiceCard = ({
 
           <span
             className={clsx(
-              "text-[20px] ",
+              "text-sm sm:text-base lg:text-[20px]",
               variant === "dark"
                 ? "text-gray"
                 : variant === "gray"
@@ -98,12 +98,12 @@ const ServiceCard = ({
         </div>
       </div>
 
-      <div className=" flex items-center justify-center">
+      <div className="flex items-center justify-center w-full sm:w-auto">
         <img
           src={image}
           alt="service"
           className={clsx(
-            " object-contain h-[210px] w-[166px]",
+            "object-contain h-[150px] w-[120px] sm:h-[180px] sm:w-[140px] lg:h-[210px] lg:w-[166px]",
             customClassName
           )}
         />

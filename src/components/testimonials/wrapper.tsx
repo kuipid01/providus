@@ -6,18 +6,20 @@ interface TestimonialCardProp {
 
 const MessageWrapper = ({ children, name, position }: TestimonialCardProp) => {
   return (
-    <div>
-      <div className=" relative shrink-0  w-[606px]  py-12 px-13 ">
+    <div className="w-full max-w-[606px]">
+      <div className="relative shrink-0 w-full max-w-[606px] py-8 sm:py-10 lg:py-12 px-6 sm:px-8 lg:px-13">
         <img
           src="/assets/Bubble.png"
-          className="shrink-0 z-0 h-[266px] absolute inset-0 w-[606px]"
-          alt=" bubble"
+          className="shrink-0 z-0 h-[200px] sm:h-[230px] lg:h-[266px] absolute inset-0 w-full max-w-[606px] object-cover"
+          alt="bubble"
         />
-        <div className=" relative z-[10000]"> {children}</div>
+        <div className="relative z-10000 text-white text-sm sm:text-base lg:text-lg leading-relaxed">
+          {children}
+        </div>
       </div>
-      <div className="flex flex-col ml-20 mt-[48px] items-start">
-        <p className="text-primary  h4">{name}</p>
-        <p className=" text-white p">{position}</p>
+      <div className="flex flex-col ml-4 sm:ml-8 lg:ml-20 mt-6 sm:mt-8 lg:mt-[48px] items-start">
+        <p className="text-primary text-sm sm:text-base lg:text-lg font-semibold">{name}</p>
+        <p className="text-white text-xs sm:text-sm lg:text-base">{position}</p>
       </div>
     </div>
   );

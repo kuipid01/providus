@@ -17,10 +17,10 @@ const InputField = ({
   ...props
 }: InputFieldProps) => {
   return (
-    <div className=" mt-[25px] flex flex-col items-start">
+    <div className="mt-4 sm:mt-6 lg:mt-[25px] flex flex-col items-start w-full">
       <label
         htmlFor={id}
-        className="block text-sm mb-[5px] text-[16px] leading-[28px] font-medium text-black"
+        className="block text-sm mb-1 sm:mb-[5px] sm:text-[16px] leading-6 sm:leading-[28px] font-medium text-black"
       >
         {label} {required && <span className="text-black font-bold">*</span>}
       </label>
@@ -29,14 +29,14 @@ const InputField = ({
           placeholder={label}
           type={type}
           id={id}
-          className="block w-full h-[60px]  border-black border rounded-[14px]   sm:text-sm"
+          className="block w-full h-[50px] sm:h-[60px] border-black border rounded-[14px] px-3 sm:px-4 text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-primary"
           {...props}
         />
       ) : (
         <textarea
           placeholder={label}
           id={id}
-          className="h-[190px] resize-none block w-full rounded-[14px]  border-black border   sm:text-sm"
+          className="h-[120px] sm:h-[150px] lg:h-[190px] resize-none block w-full rounded-[14px] border-black border px-3 sm:px-4 text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-primary"
           {...props}
         />
       )}
@@ -46,16 +46,16 @@ const InputField = ({
 
 const ContactForm = () => {
   return (
-    <div className=" flex flex-col max-w-[556px] mr-auto">
+    <div className="flex flex-col w-full max-w-[556px] mx-auto lg:mr-auto lg:ml-0">
       <InputField label="Name" required={false} type="text" id="name" />
       <InputField label="Email" required={true} type="email" id="email" />
       <InputField
-        label="Maessage"
+        label="Message"
         required={false}
         type="textarea"
         id="message"
       />
-      <div className="mt-[25px]" />
+      <div className="mt-6 sm:mt-[25px]" />
       <MainSecBtn label="Send Message" className="w-full" />
     </div>
   );

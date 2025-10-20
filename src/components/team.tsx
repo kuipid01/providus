@@ -9,7 +9,7 @@ const Team = () => {
         title="Our Team"
         description="Meet the team of experts who are dedicated to helping your business grow and succeed online."
       />
-      <div className="grid mt-20 grid-cols-3 gap-10">
+      <div className="grid mt-12 sm:mt-16 lg:mt-20 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-10">
         <TeamCard
           name="John Doe"
           title="Marketing Manager"
@@ -47,7 +47,7 @@ const Team = () => {
           desc="A copywriter is a professional who writes copy for advertising, marketing, and other promotional materials."
         />
       </div>
-      <div className="flex justify-end mt-10 items-end">
+      <div className="flex justify-center sm:justify-end mt-8 sm:mt-10 items-end">
         <MainSecBtn label="See all team" />
       </div>
     </div>

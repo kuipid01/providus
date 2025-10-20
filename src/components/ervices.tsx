@@ -9,7 +9,7 @@ const Services = () => {
         description="At our digital marketing agency, we offer a range of services to help businesses grow and succeed online. These services include:"
       />
 
-      <div className=" grid mt-20 grid-cols-2 gap-[40px]">
+      <div className="grid mt-12 sm:mt-16 lg:mt-20 grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8 lg:gap-[40px]">
         <ServiceCard
           image="/assets/service-1.png"
           variant="gray"

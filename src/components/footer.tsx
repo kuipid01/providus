@@ -11,73 +11,77 @@ const Footer = () => {
   };
 
   return (
-    <footer className="mt-[140px]">
-      <div className="bg-[#191a23] px-[60px] py-[55px] rounded-t-[25px] text-white ">
+    <footer className="mt-12 sm:mt-16 lg:mt-[140px]">
+      <div className="bg-[#191a23] px-4 sm:px-6 lg:px-[60px] py-6 sm:py-8 lg:py-[55px] rounded-t-[25px] text-white">
         {/* Top Section - Navigation & Social */}
         <div>
-          <div className="flex items-center justify-between">
+          <div className="flex flex-col lg:flex-row items-center justify-between gap-6 lg:gap-0">
             {/* Logo */}
             <div className="flex items-center space-x-2">
-              <div className="w-8 h-8 bg-white rounded-full flex items-center justify-center">
-                <span className="text-[#191a23] font-bold text-lg">X</span>
+              <div className="w-6 h-6 sm:w-8 sm:h-8 bg-white rounded-full flex items-center justify-center">
+                <span className="text-[#191a23] font-bold text-sm sm:text-lg">
+                  X
+                </span>
               </div>
-              <span className="text-xl font-semibold">Positivus</span>
+              <span className="text-lg sm:text-xl font-semibold">
+                Positivus
+              </span>
             </div>
 
             {/* Navigation Links */}
-            <nav className="hidden md:flex space-x-8">
+            <nav className="hidden md:flex space-x-4 lg:space-x-8">
               <a
                 href="#about"
-                className="hover:text-[#b9ff66] transition-colors underline"
+                className="hover:text-[#b9ff66] transition-colors underline text-sm lg:text-base"
               >
                 About us
               </a>
               <a
                 href="#services"
-                className="hover:text-[#b9ff66] transition-colors underline p"
+                className="hover:text-[#b9ff66] transition-colors underline text-sm lg:text-base"
               >
                 Services
               </a>
               <a
                 href="#cases"
-                className="hover:text-[#b9ff66] transition-colors underline p"
+                className="hover:text-[#b9ff66] transition-colors underline text-sm lg:text-base"
               >
                 Use Cases
               </a>
               <a
                 href="#pricing"
-                className="hover:text-[#b9ff66] transition-colors underline p"
+                className="hover:text-[#b9ff66] transition-colors underline text-sm lg:text-base"
               >
                 Pricing
               </a>
               <a
                 href="#blog"
-                className="hover:text-[#b9ff66] transition-colors underline p"
+                className="hover:text-[#b9ff66] transition-colors underline text-sm lg:text-base"
               >
                 Blog
               </a>
             </nav>
 
             {/* Social Media Icons */}
-            <div className="flex space-x-4">
+            <div className="flex space-x-3 sm:space-x-4">
               <a
                 href="#"
-                className="w-10 h-10 bg-white text-black font-bold rounded-full flex items-center justify-center hover:bg-[#b9ff66] hover:text-[#191a23] transition-colors"
+                className="w-8 h-8 sm:w-10 sm:h-10 bg-white text-black font-bold rounded-full flex items-center justify-center hover:bg-[#b9ff66] hover:text-[#191a23] transition-colors"
               >
-                <span className="text-sm font-bold">in</span>
+                <span className="text-xs sm:text-sm font-bold">in</span>
               </a>
               <a
                 href="#"
-                className="w-10 h-10 bg-white text-black font-bold rounded-full flex items-center justify-center hover:bg-[#b9ff66] hover:text-[#191a23] transition-colors"
+                className="w-8 h-8 sm:w-10 sm:h-10 bg-white text-black font-bold rounded-full flex items-center justify-center hover:bg-[#b9ff66] hover:text-[#191a23] transition-colors"
               >
-                <span className="text-sm font-bold">f</span>
+                <span className="text-xs sm:text-sm font-bold">f</span>
               </a>
               <a
                 href="#"
-                className="w-10 h-10 bg-white text-black font-bold rounded-full flex items-center justify-center hover:bg-[#b9ff66] hover:text-[#191a23] transition-colors"
+                className="w-8 h-8 sm:w-10 sm:h-10 bg-white text-black font-bold rounded-full flex items-center justify-center hover:bg-[#b9ff66] hover:text-[#191a23] transition-colors"
               >
                 <svg
-                  className="w-4 h-4"
+                  className="w-3 h-3 sm:w-4 sm:h-4"
                   fill="currentColor"
                   viewBox="0 0 24 24"
                 >
@@ -89,17 +93,19 @@ const Footer = () => {
         </div>
 
         {/* Middle Section - Contact & Newsletter */}
-        <div className="py-8">
-          <div className="grid md:grid-cols-2 gap-8">
+        <div className="py-6 sm:py-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
             {/* Contact Information */}
-            <div className=" flex flex-col items-start">
-              <h3 className="text-lg mb-5 font-semibold  bg-[#b9ff66] text-[#191a23] px-3 py-1 rounded-md inline-block">
+            <div className="flex flex-col items-start">
+              <h3 className="text-base sm:text-lg mb-3 sm:mb-5 font-semibold bg-[#b9ff66] text-[#191a23] px-2 sm:px-3 py-1 rounded-md inline-block">
                 Contact us:
               </h3>
-              <div className="space-y-5 flex flex-col items-start text-gray-300">
-                <p className="p">Email: info@positivus.com</p>
-                <p className="p">Phone : 555-567-8901</p>
-                <p className="p">
+              <div className="space-y-3 sm:space-y-5 flex flex-col items-start text-gray-300">
+                <p className="text-sm sm:text-base">
+                  Email: info@positivus.com
+                </p>
+                <p className="text-sm sm:text-base">Phone : 555-567-8901</p>
+                <p className="text-sm sm:text-base">
                   <span className="font-bold">Address:</span> 1234 Main St
                   Moonstone City, Stardust State 12345
                 </p>
@@ -107,22 +113,22 @@ const Footer = () => {
             </div>
 
             {/* Newsletter Subscription */}
-            <div>
+            <div className="flex justify-center lg:justify-end">
               <form
                 onSubmit={handleSubscribe}
-                className="flex flex-col py-[59px] justify-center items-center bg-[#292A32] rounded-[14px] w-[634px] sm:flex-row gap-3"
+                className="flex flex-col py-6 sm:py-8 lg:py-[59px] justify-center items-center bg-[#292A32] rounded-[14px] w-full max-w-[634px] sm:flex-row gap-3"
               >
                 <input
                   type="email"
                   placeholder="Email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className=" px-[35px] w-[285px] py-[22px] bg-transparent border border-white rounded-[22px] text-white placeholder-white focus:outline-none focus:border-[#b9ff66] transition-colors placeholder:text-[16px]"
+                  className="px-4 sm:px-6 lg:px-[35px] w-full sm:w-[285px] py-3 sm:py-4 lg:py-[22px] bg-transparent border border-white rounded-[22px] text-white placeholder-white focus:outline-none focus:border-[#b9ff66] transition-colors placeholder:text-sm sm:placeholder:text-[16px]"
                   required
                 />
                 <button
                   type="submit"
-                  className="px-[35px] py-[22px] bg-[#b9ff66] text-[#191a23] font-semibold rounded-[20px] hover:bg-[#a8e55c] transition-colors whitespace-nowrap"
+                  className="px-4 sm:px-6 lg:px-[35px] py-3 sm:py-4 lg:py-[22px] bg-[#b9ff66] text-[#191a23] font-semibold rounded-[20px] hover:bg-[#a8e55c] transition-colors whitespace-nowrap text-sm sm:text-base"
                 >
                   Subscribe to news
                 </button>
