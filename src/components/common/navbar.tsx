@@ -1,6 +1,5 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import { useState, useEffect } from "react";
-import { Menu, X } from "lucide-react";
+import { X } from "lucide-react";
 
 const navItems = [
   {
