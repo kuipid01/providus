@@ -13,7 +13,7 @@ import {
 
 function App() {
   return (
-    <div className=" px-[100px] py-[60px]">
+    <div className=" px-[100px] pt-[60px]">
       <LandingPage />
       <Services />
       <MakeHappenSection />

@@ -3,7 +3,7 @@ import ContactForm from "./contact/contact-form";
 
 const ContactUs = () => {
   return (
-    <div>
+    <div className=" overflow-hidden">
       <SectionHeader
         title="Contact Us"
         description="Contact us today to learn more about how our digital marketing services can help your business grow and succeed online."
