@@ -39,9 +39,7 @@ export const TeamCard = ({
 
       <hr className="border-dark" />
       <div className="flex flex-col gap-2">
-        <p className="text-xs sm:text-sm text-left text-black leading-relaxed">
-          {desc}
-        </p>
+        <p className="p text-left text-black leading-relaxed">{desc}</p>
       </div>
     </div>
   );

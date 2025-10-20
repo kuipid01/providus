@@ -15,7 +15,7 @@ const MakeHappenSection = () => {
       <img
         src="/assets/happen.png"
         alt="make-happen"
-        className="absolute right-0 top-[-23px] bottom-[-23px] h-[394px] w-[494px] object-cover"
+        className="absolute hidden lg:block right-0 top-[-23px] bottom-[-23px] h-[394px] w-[494px] object-cover"
       />
     </div>
   );

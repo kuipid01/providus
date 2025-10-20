@@ -13,7 +13,7 @@ const ContactUs = () => {
           <div className="w-full lg:w-1/2">
             <ContactForm />
           </div>
-          <div className="w-full lg:w-1/2 flex justify-center lg:justify-end">
+          <div className=" hidden  w-full lg:w-1/2 lg:kflex justify-center lg:justify-end">
             <img
               src="/assets/contact-us.png"
               className="h-[300px] sm:h-[400px] lg:h-[648px] w-auto max-w-[400px] sm:max-w-[500px] lg:max-w-[691px] object-cover lg:absolute lg:top-1/2 lg:-translate-y-1/2 lg:right-[-324px]"
