@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import { X } from "lucide-react";
+import { AnimatePresence } from "motion/react";
+import { motion } from "motion/react";
 
 const navItems = [
   {
@@ -75,7 +77,7 @@ const Navbar = () => {
   }, [isMenuOpen]);
 
   return (
-    <nav className="flex items-center justify-between relative">
+    <nav className="flex z-3000 px-4 sm:px-6 lg:py-auto  py-[20px] fixed sm:relative top-0 left-0 w-full bg-white/50 backdrop-blur-lg sm:w-auto items-center justify-between ">
       {/* Logo */}
       <div>
         <img
@@ -132,51 +134,88 @@ const Navbar = () => {
 
       {/* Mobile Menu Overlay */}
       {isMenuOpen && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 z-40 lg:hidden" />
+        <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-40 lg:hidden" />
       )}
 
       {/* Mobile Menu */}
-      {isMenuOpen && (
-        <div className="fixed top-0 right-0 h-full w-80 max-w-[85vw] bg-white shadow-2xl z-50 lg:hidden transform transition-transform duration-300 ease-in-out">
-          <div className="flex flex-col h-full">
-            {/* Mobile Menu Header */}
-            <div className="flex items-center justify-between p-4 border-b border-gray-200">
-              <img
-                src="/assets/logo.svg"
-                className="w-[150px] h-auto"
-                alt="logo"
-              />
-              <button
-                onClick={toggleMenu}
-                className="p-2 rounded-md text-black hover:bg-gray-100 transition-colors"
-                aria-label="Close menu"
+
+      <AnimatePresence>
+        {isMenuOpen && (
+          <motion.div
+            key="mobile-menu"
+            initial={{ opacity: 0, y: 5, filter: "blur(6px)" }}
+            exit={{ opacity: 0, y: 5, filter: "blur(6px)" }}
+            animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+            transition={{ duration: 0.3, ease: "easeOut" }}
+            className="fixed top-0 right-0 h-full w-80 max-w-[85vw] bg-white shadow-2xl z-50 lg:hidden transform transition-transform duration-300 ease-in-out"
+          >
+            <motion.div className="flex flex-col h-full">
+              {/* Mobile Menu Header */}
+              <div className="flex items-center justify-between p-4 border-b border-gray-200">
+                <img
+                  src="/assets/logo.svg"
+                  className="w-[150px] h-auto"
+                  alt="logo"
+                />
+                <button
+                  onClick={toggleMenu}
+                  className="p-2 rounded-md text-black hover:bg-gray-100 transition-colors"
+                  aria-label="Close menu"
+                >
+                  <X className="w-6 h-6" />
+                </button>
+              </div>
+
+              {/* Mobile Navigation Links */}
+              <motion.ul
+                variants={{
+                  hidden: {},
+                  show: {
+                    transition: { staggerChildren: 0.15 }
+                  }
+                }}
+                initial="hidden"
+                whileInView="show"
+                viewport={{ once: true, amount: 0.5 }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+                className="flex-1 py-6"
               >
-                <X className="w-6 h-6" />
-              </button>
-            </div>
-
-            {/* Mobile Navigation Links */}
-            <ul className="flex-1 py-6">
-              {navItems.map((item) => (
-                <li key={item.href}>
-                  <a
-                    href={item.href}
-                    className="block px-6 py-4 text-lg text-black hover:bg-gray-50 transition-colors border-l-4 border-transparent hover:border-primary"
-                    onClick={() => setIsMenuOpen(false)}
+                {navItems.map((item) => (
+                  <motion.li
+                    key={item.href}
+                    variants={{
+                      hidden: { opacity: 0, y: 30, filter: "blur(6px)" },
+                      show: { opacity: 1, y: 0, filter: "blur(0px)" }
+                    }}
+                    transition={{ duration: 0.6, ease: "easeOut" }}
                   >
-                    {item.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
+                    <a
+                      href={item.href}
+                      className="block px-6 py-4 text-lg text-black hover:bg-gray-50 transition-colors border-l-4 border-transparent hover:border-primary"
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      {item.label}
+                    </a>
+                  </motion.li>
+                ))}
+              </motion.ul>
 
-            {/* Mobile Menu Footer */}
-            <div className="p-6 border-t border-gray-200">
-              <RequestQuoteButton />
-            </div>
-          </div>
-        </div>
-      )}
+              {/* Mobile Menu Footer */}
+              <motion.div className="p-6 border-t border-gray-200">
+                <motion.div
+                  variants={{
+                    hidden: { opacity: 0, y: 30, filter: "blur(6px)" },
+                    show: { opacity: 1, y: 0, filter: "blur(0px)" }
+                  }}
+                  transition={{ duration: 0.6, ease: "easeOut" }}
+                >
+                  <RequestQuoteButton />
+                </motion.div>
+              </motion.div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </nav>
   );
 };
