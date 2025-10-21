@@ -1,8 +1,6 @@
 import { useState, useEffect } from "react";
 import { X } from "lucide-react";
-import { AnimatePresence } from "motion/react";
 import { motion } from "motion/react";
-
 const navItems = [
   {
     label: "About us",
@@ -77,7 +75,7 @@ const Navbar = () => {
   }, [isMenuOpen]);
 
   return (
-    <nav className="flex z-3000 px-4 sm:px-6 lg:py-auto  py-[20px] fixed sm:relative top-0 left-0 w-full bg-white/50 backdrop-blur-lg sm:w-auto items-center justify-between ">
+    <nav className="flex fixed px-4 sm:px-0 sm:py-auto  py-[20px]  bg-white _backdrop-blur-md sm:backdrop-none z-3000 top-0 left-0 w-full items-center justify-between sm:relative">
       {/* Logo */}
       <div>
         <img
@@ -134,22 +132,15 @@ const Navbar = () => {
 
       {/* Mobile Menu Overlay */}
       {isMenuOpen && (
-        <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-40 lg:hidden" />
+        <div className="fixed inset-0 bg-white/50 backdrop-blur-md bg-opacity-50 z-40 lg:hidden" />
       )}
 
       {/* Mobile Menu */}
-
-      <AnimatePresence>
-        {isMenuOpen && (
-          <motion.div
-            key="mobile-menu"
-            initial={{ opacity: 0, y: 5, filter: "blur(6px)" }}
-            exit={{ opacity: 0, y: 5, filter: "blur(6px)" }}
-            animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-            transition={{ duration: 0.3, ease: "easeOut" }}
-            className="fixed top-0 right-0 h-full w-80 max-w-[85vw] bg-white shadow-2xl z-50 lg:hidden transform transition-transform duration-300 ease-in-out"
-          >
-            <motion.div className="flex flex-col h-full">
+      {
+        // <AnimatePresence key="navbar-menu">
+        isMenuOpen && (
+          <div className="fixed top-0 right-0 h-full w-80 max-w-[85vw] bg-white shadow-2xl z-50 lg:hidden transform transition-transform duration-300 ease-in-out">
+            <div className="flex flex-col h-full">
               {/* Mobile Menu Header */}
               <div className="flex items-center justify-between p-4 border-b border-gray-200">
                 <img
@@ -176,8 +167,11 @@ const Navbar = () => {
                 }}
                 initial="hidden"
                 whileInView="show"
-                viewport={{ once: true, amount: 0.5 }}
-                transition={{ duration: 0.6, delay: 0.3 }}
+                // exit="hidden"
+                transition={{
+                  duration: 0.4,
+                  ease: "easeOut"
+                }}
                 className="flex-1 py-6"
               >
                 {navItems.map((item) => (
@@ -185,37 +179,37 @@ const Navbar = () => {
                     key={item.href}
                     variants={{
                       hidden: { opacity: 0, y: 30, filter: "blur(6px)" },
-                      show: { opacity: 1, y: 0, filter: "blur(0px)" }
+                      show: { opacity: 1, y: 0, filter: "blur(0px)" },
+                      exit: { opacity: 0, y: 30, filter: "blur(6px)" }
                     }}
-                    transition={{ duration: 0.6, ease: "easeOut" }}
+                    // initial="hidden"
+                    // whileInView="show"
+                    // exit="exit"
+                    transition={{
+                      duration: 0.4,
+                      ease: "easeOut"
+                    }}
                   >
-                    <a
+                    <motion.a
                       href={item.href}
                       className="block px-6 py-4 text-lg text-black hover:bg-gray-50 transition-colors border-l-4 border-transparent hover:border-primary"
                       onClick={() => setIsMenuOpen(false)}
                     >
                       {item.label}
-                    </a>
+                    </motion.a>
                   </motion.li>
                 ))}
               </motion.ul>
 
               {/* Mobile Menu Footer */}
-              <motion.div className="p-6 border-t border-gray-200">
-                <motion.div
-                  variants={{
-                    hidden: { opacity: 0, y: 30, filter: "blur(6px)" },
-                    show: { opacity: 1, y: 0, filter: "blur(0px)" }
-                  }}
-                  transition={{ duration: 0.6, ease: "easeOut" }}
-                >
-                  <RequestQuoteButton />
-                </motion.div>
-              </motion.div>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+              <div className="p-6 border-t border-gray-200">
+                <RequestQuoteButton />
+              </div>
+            </div>
+          </div>
+        )
+        // </AnimatePresence>
+      }
     </nav>
   );
 };
