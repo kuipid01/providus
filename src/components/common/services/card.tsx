@@ -1,5 +1,6 @@
 import clsx from "clsx";
 import { ArrowRightIcon } from "lucide-react";
+import { motion } from "motion/react";
 
 interface Props {
   image: string;
@@ -16,7 +17,12 @@ const ServiceCard = ({
   customClassName
 }: Props) => {
   return (
-    <div
+    <motion.div
+      variants={{
+        hidden: { opacity: 0, y: 30, filter: "blur(6px)" },
+        show: { opacity: 1, y: 0, filter: "blur(0px)" }
+      }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
       className={clsx(
         "flex flex-col  lg:flex-row items-center border border-dark drop-shadow-[0px_5px_0px_#191A23] text-black _min-h-[250px] min-h-fit h-[310px] justify-between px-4 sm:px-8 lg:px-[57px] py-6 sm:py-8 lg:py-[50px] rounded-[45px]",
         variant === "dark"
@@ -108,7 +114,7 @@ const ServiceCard = ({
           )}
         />
       </div>
-    </div>
+    </motion.div>
   );
 };
 

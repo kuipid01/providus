@@ -1,5 +1,5 @@
 import MainSecBtn from "../common/main-section-home/main-sec-btn";
-
+import { motion } from "motion/react";
 /* eslint-disable @typescript-eslint/no-explicit-any */
 interface InputFieldProps {
   required: boolean;
@@ -46,7 +46,13 @@ const InputField = ({
 
 const ContactForm = () => {
   return (
-    <div className="flex flex-col w-full max-w-[556px] mx-auto lg:mr-auto lg:ml-0">
+    <motion.div
+      initial={{ opacity: 0, y: 30, filter: "blur(8px)" }}
+      whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+      transition={{ duration: 0.8, ease: "easeOut" }}
+      viewport={{ once: true }}
+      className="flex flex-col w-full max-w-[556px] mx-auto lg:mr-auto lg:ml-0"
+    >
       <InputField label="Name" required={false} type="text" id="name" />
       <InputField label="Email" required={true} type="email" id="email" />
       <InputField
@@ -57,7 +63,7 @@ const ContactForm = () => {
       />
       <div className="mt-6 sm:mt-[25px]" />
       <MainSecBtn label="Send Message" className="w-full" />
-    </div>
+    </motion.div>
   );
 };
 

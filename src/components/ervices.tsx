@@ -1,3 +1,4 @@
+import { motion } from "motion/react";
 import SectionHeader from "./common/section-header";
 import ServiceCard from "./common/services/card";
 
@@ -9,7 +10,19 @@ const Services = () => {
         description="At our digital marketing agency, we offer a range of services to help businesses grow and succeed online. These services include:"
       />
 
-      <div className="grid mt-12 sm:mt-16 lg:mt-20 grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8 lg:gap-[40px]">
+      <motion.div
+        variants={{
+          hidden: {},
+          show: {
+            transition: { staggerChildren: 0.15 }
+          }
+        }}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.5 }}
+        transition={{ duration: 0.6, delay: 0.3 }}
+        className="grid mt-12 sm:mt-16 lg:mt-20 grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8 lg:gap-[40px]"
+      >
         <ServiceCard
           image="/assets/service-1.png"
           variant="gray"
@@ -48,7 +61,7 @@ const Services = () => {
           firstTitle="Analytics and "
           secondTitle="Tracking"
         />
-      </div>
+      </motion.div>
     </div>
   );
 };

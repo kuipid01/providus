@@ -1,6 +1,7 @@
 import { useState } from "react";
 import SectionHeader from "./common/section-header";
 import { ToggleDesc } from "./work-process/toggle-desc";
+import { motion } from "motion/react";
 
 const WorkProcess = () => {
   const [process, setProcess] = useState([
@@ -60,7 +61,20 @@ const WorkProcess = () => {
         description="Step-by-Step Guide to Achieving Your Business Goals"
       />
 
-      <div className=" mt-20 grid grid-cols-1 gap-[40px]">
+      <motion.div
+        variants={{
+          hidden: {},
+
+          show: {
+            transition: { staggerChildren: 0.15 }
+          }
+        }}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.5 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+        className=" mt-20 grid grid-cols-1 gap-[40px]"
+      >
         {process.map((item, index) => (
           <ToggleDesc
             onClick={() => handleClick(index)}
@@ -68,7 +82,7 @@ const WorkProcess = () => {
             {...item}
           />
         ))}
-      </div>
+      </motion.div>
     </div>
   );
 };

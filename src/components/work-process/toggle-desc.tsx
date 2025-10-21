@@ -1,5 +1,6 @@
 import clsx from "clsx";
 import { Minus, Plus } from "lucide-react";
+import { AnimatePresence, motion } from "motion/react";
 
 export const ToggleDesc = ({
   number,
@@ -15,7 +16,12 @@ export const ToggleDesc = ({
   onClick: () => void;
 }) => {
   return (
-    <div
+    <motion.div
+      variants={{
+        hidden: { opacity: 0, y: 30, filter: "blur(6px)" },
+        show: { opacity: 1, y: 0, filter: "blur(0px)" }
+      }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
       className={clsx(
         "rounded-[45px] bg-gray px-[60px]  py-[40px]",
         opened ? "bg-primary" : "bg-gray"
@@ -38,16 +44,23 @@ export const ToggleDesc = ({
           )}
         </div>
       </div>
-      {opened && (
-        <p
-          className={clsx(
-            "text-lg border-t text-left border-dark mt-[30px] pt-[30px] pb-[41px]",
-            opened ? "text-black" : "text-gray"
-          )}
-        >
-          {description}
-        </p>
-      )}
-    </div>
+      <AnimatePresence>
+        {opened && (
+          <motion.p
+            key={description}
+            initial={{ opacity: 0, y: 30, filter: "blur(6px)" }}
+            exit={{ opacity: 0, y: 30, filter: "blur(6px)" }}
+            animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+            transition={{ duration: 0.3, ease: "easeOut" }}
+            className={clsx(
+              "text-lg border-t text-left border-dark mt-[30px] pt-[30px] pb-[41px]",
+              opened ? "text-black" : "text-gray"
+            )}
+          >
+            {description}
+          </motion.p>
+        )}
+      </AnimatePresence>
+    </motion.div>
   );
 };

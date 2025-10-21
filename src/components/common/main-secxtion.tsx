@@ -1,3 +1,4 @@
+import { motion } from "motion/react";
 import Left from "./main-section-home/left";
 import Right from "./main-section-home/right";
 
@@ -8,11 +9,33 @@ const MainSection = () => {
         <Left />
         <Right />
       </div>
-      <img
-        src="/assets/Logotypes.svg"
-        alt="logotypes"
-        className="mix-blend-luminosity w-full h-auto object-contain"
-      />
+
+      <div className="flex gap-4 overflow-hidden">
+        <motion.img
+          initial={{ x: "0%" }}
+          animate={{ x: "-100%" }}
+          transition={{
+            duration: 10,
+            repeat: Infinity,
+            ease: "linear"
+          }}
+          src="/assets/Logotypes.svg"
+          alt="logotypes"
+          className="mix-blend-luminosity w-full h-auto object-contain shrink-0"
+        />
+        <motion.img
+          initial={{ x: "0%" }}
+          animate={{ x: "-100%" }}
+          transition={{
+            duration: 10,
+            repeat: Infinity,
+            ease: "linear"
+          }}
+          src="/assets/Logotypes.svg"
+          alt="logotypes"
+          className="mix-blend-luminosity w-full h-auto object-contain shrink-0"
+        />
+      </div>
     </div>
   );
 };
